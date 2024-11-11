@@ -1,0 +1,1850 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    CLAVE_PRIMA
+    CLAVE_REFERENTE
+    COMO_MUCHO
+    ES_NULO
+    EXISTE
+    ORDENA_POR
+    PARECIDO_A
+    POR_DEFECTO
+    TRANSFORMA_A
+    UNICO
+
+Grammar
+
+Rule 0     S' -> query
+Rule 1     query -> TRAEME seleccion DE_LA_TABLA tabla opcionales
+Rule 2     query -> METE_EN tabla LPAREN columnas RPAREN LOS_VALORES LPAREN valores RPAREN
+Rule 3     query -> ACTUALIZA tabla SETEA columna comparador valor opcionales
+Rule 4     query -> BORRA_DE_LA tabla opcionales
+Rule 5     query -> CAMBIA_LA_TABLA tabla alter_opcionales
+Rule 6     opcionales -> where opcionales
+Rule 7     opcionales -> group opcionales
+Rule 8     opcionales -> having opcionales
+Rule 9     opcionales -> join opcionales
+Rule 10    opcionales -> empty
+Rule 11    join -> MEZCLANDO tabla EN columna comparador columna
+Rule 12    join -> empty
+Rule 13    group -> AGRUPANDO_POR columna
+Rule 14    group -> empty
+Rule 15    having -> WHERE_DEL_GROUP_BY condicion
+Rule 16    having -> WHERE_DEL_GROUP_BY seleccion
+Rule 17    having -> empty
+Rule 18    where -> DONDE condicion
+Rule 19    where -> empty
+Rule 20    add -> AGREGA_LA_COLUMNA columna tipo_dato constraint
+Rule 21    drop_column -> ELIMINA_LA_COLUMNA columna
+Rule 22    drop_column -> empty
+Rule 23    condicion -> columna comparador valor
+Rule 24    condicion -> columna ENTRE valor COMMA valor
+Rule 25    condicion -> columna ENTRE valor Y valor
+Rule 26    rename -> RENOMBRA columna valor
+Rule 27    rename -> empty
+Rule 28    create -> CREA_LA_TABLA tabla
+Rule 29    create -> empty
+Rule 30    drop_table -> TIRA_LA_TABLA tabla
+Rule 31    drop_table -> empty
+Rule 32    alter_opcionales -> add alter_opcionales
+Rule 33    alter_opcionales -> create alter_opcionales
+Rule 34    alter_opcionales -> drop_table alter_opcionales
+Rule 35    alter_opcionales -> drop_column alter_opcionales
+Rule 36    alter_opcionales -> empty
+Rule 37    seleccion -> TODO
+Rule 38    seleccion -> columna
+Rule 39    seleccion -> LOS_DISTINTOS columna
+Rule 40    seleccion -> CONTANDO LPAREN ASTERISK RPAREN
+Rule 41    seleccion -> CONTANDO LPAREN TODO RPAREN
+Rule 42    tabla -> ID
+Rule 43    columna -> ID
+Rule 44    columnas -> columna
+Rule 45    columnas -> columna COMMA columnas
+Rule 46    comparador -> COMPARADORES
+Rule 47    comparador -> empty
+Rule 48    valor -> NUMBER
+Rule 49    valor -> ID
+Rule 50    valor -> STRING
+Rule 51    valor -> LPAREN valor RPAREN
+Rule 52    valores -> valor
+Rule 53    valores -> valor COMMA valores
+Rule 54    tipo_dato -> ID LPAREN NUMBER RPAREN
+Rule 55    tipo_dato -> ID
+Rule 56    constraint -> NO_NULO
+Rule 57    constraint -> empty
+Rule 58    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ACTUALIZA            : 3
+AGREGA_LA_COLUMNA    : 20
+AGRUPANDO_POR        : 13
+ASTERISK             : 40
+BORRA_DE_LA          : 4
+CAMBIA_LA_TABLA      : 5
+CLAVE_PRIMA          : 
+CLAVE_REFERENTE      : 
+COMMA                : 24 45 53
+COMO_MUCHO           : 
+COMPARADORES         : 46
+CONTANDO             : 40 41
+CREA_LA_TABLA        : 28
+DE_LA_TABLA          : 1
+DONDE                : 18
+ELIMINA_LA_COLUMNA   : 21
+EN                   : 11
+ENTRE                : 24 25
+ES_NULO              : 
+EXISTE               : 
+ID                   : 42 43 49 54 55
+LOS_DISTINTOS        : 39
+LOS_VALORES          : 2
+LPAREN               : 2 2 40 41 51 54
+METE_EN              : 2
+MEZCLANDO            : 11
+NO_NULO              : 56
+NUMBER               : 48 54
+ORDENA_POR           : 
+PARECIDO_A           : 
+POR_DEFECTO          : 
+RENOMBRA             : 26
+RPAREN               : 2 2 40 41 51 54
+SETEA                : 3
+STRING               : 50
+TIRA_LA_TABLA        : 30
+TODO                 : 37 41
+TRAEME               : 1
+TRANSFORMA_A         : 
+UNICO                : 
+WHERE_DEL_GROUP_BY   : 15 16
+Y                    : 25
+error                : 
+
+Nonterminals, with rules where they appear
+
+add                  : 32
+alter_opcionales     : 5 32 33 34 35
+columna              : 3 11 11 13 20 21 23 24 25 26 38 39 44 45
+columnas             : 2 45
+comparador           : 3 11 23
+condicion            : 15 18
+constraint           : 20
+create               : 33
+drop_column          : 35
+drop_table           : 34
+empty                : 10 12 14 17 19 22 27 29 31 36 47 57
+group                : 7
+having               : 8
+join                 : 9
+opcionales           : 1 3 4 6 7 8 9
+query                : 0
+rename               : 
+seleccion            : 1 16
+tabla                : 1 2 3 4 5 11 28 30
+tipo_dato            : 20
+valor                : 3 23 24 24 25 25 26 51 52 53
+valores              : 2 53
+where                : 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . query
+    (1) query -> . TRAEME seleccion DE_LA_TABLA tabla opcionales
+    (2) query -> . METE_EN tabla LPAREN columnas RPAREN LOS_VALORES LPAREN valores RPAREN
+    (3) query -> . ACTUALIZA tabla SETEA columna comparador valor opcionales
+    (4) query -> . BORRA_DE_LA tabla opcionales
+    (5) query -> . CAMBIA_LA_TABLA tabla alter_opcionales
+
+    TRAEME          shift and go to state 2
+    METE_EN         shift and go to state 3
+    ACTUALIZA       shift and go to state 4
+    BORRA_DE_LA     shift and go to state 5
+    CAMBIA_LA_TABLA shift and go to state 6
+
+    query                          shift and go to state 1
+
+state 1
+
+    (0) S' -> query .
+
+
+
+state 2
+
+    (1) query -> TRAEME . seleccion DE_LA_TABLA tabla opcionales
+    (37) seleccion -> . TODO
+    (38) seleccion -> . columna
+    (39) seleccion -> . LOS_DISTINTOS columna
+    (40) seleccion -> . CONTANDO LPAREN ASTERISK RPAREN
+    (41) seleccion -> . CONTANDO LPAREN TODO RPAREN
+    (43) columna -> . ID
+
+    TODO            shift and go to state 8
+    LOS_DISTINTOS   shift and go to state 10
+    CONTANDO        shift and go to state 11
+    ID              shift and go to state 12
+
+    seleccion                      shift and go to state 7
+    columna                        shift and go to state 9
+
+state 3
+
+    (2) query -> METE_EN . tabla LPAREN columnas RPAREN LOS_VALORES LPAREN valores RPAREN
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 13
+
+state 4
+
+    (3) query -> ACTUALIZA . tabla SETEA columna comparador valor opcionales
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 15
+
+state 5
+
+    (4) query -> BORRA_DE_LA . tabla opcionales
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 16
+
+state 6
+
+    (5) query -> CAMBIA_LA_TABLA . tabla alter_opcionales
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 17
+
+state 7
+
+    (1) query -> TRAEME seleccion . DE_LA_TABLA tabla opcionales
+
+    DE_LA_TABLA     shift and go to state 18
+
+
+state 8
+
+    (37) seleccion -> TODO .
+
+    DE_LA_TABLA     reduce using rule 37 (seleccion -> TODO .)
+    DONDE           reduce using rule 37 (seleccion -> TODO .)
+    AGRUPANDO_POR   reduce using rule 37 (seleccion -> TODO .)
+    WHERE_DEL_GROUP_BY reduce using rule 37 (seleccion -> TODO .)
+    MEZCLANDO       reduce using rule 37 (seleccion -> TODO .)
+    $end            reduce using rule 37 (seleccion -> TODO .)
+
+
+state 9
+
+    (38) seleccion -> columna .
+
+    DE_LA_TABLA     reduce using rule 38 (seleccion -> columna .)
+
+
+state 10
+
+    (39) seleccion -> LOS_DISTINTOS . columna
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 19
+
+state 11
+
+    (40) seleccion -> CONTANDO . LPAREN ASTERISK RPAREN
+    (41) seleccion -> CONTANDO . LPAREN TODO RPAREN
+
+    LPAREN          shift and go to state 20
+
+
+state 12
+
+    (43) columna -> ID .
+
+    DE_LA_TABLA     reduce using rule 43 (columna -> ID .)
+    DONDE           reduce using rule 43 (columna -> ID .)
+    AGRUPANDO_POR   reduce using rule 43 (columna -> ID .)
+    WHERE_DEL_GROUP_BY reduce using rule 43 (columna -> ID .)
+    MEZCLANDO       reduce using rule 43 (columna -> ID .)
+    $end            reduce using rule 43 (columna -> ID .)
+    COMMA           reduce using rule 43 (columna -> ID .)
+    RPAREN          reduce using rule 43 (columna -> ID .)
+    COMPARADORES    reduce using rule 43 (columna -> ID .)
+    NUMBER          reduce using rule 43 (columna -> ID .)
+    ID              reduce using rule 43 (columna -> ID .)
+    STRING          reduce using rule 43 (columna -> ID .)
+    LPAREN          reduce using rule 43 (columna -> ID .)
+    ENTRE           reduce using rule 43 (columna -> ID .)
+    AGREGA_LA_COLUMNA reduce using rule 43 (columna -> ID .)
+    CREA_LA_TABLA   reduce using rule 43 (columna -> ID .)
+    TIRA_LA_TABLA   reduce using rule 43 (columna -> ID .)
+    ELIMINA_LA_COLUMNA reduce using rule 43 (columna -> ID .)
+
+
+state 13
+
+    (2) query -> METE_EN tabla . LPAREN columnas RPAREN LOS_VALORES LPAREN valores RPAREN
+
+    LPAREN          shift and go to state 21
+
+
+state 14
+
+    (42) tabla -> ID .
+
+    LPAREN          reduce using rule 42 (tabla -> ID .)
+    SETEA           reduce using rule 42 (tabla -> ID .)
+    DONDE           reduce using rule 42 (tabla -> ID .)
+    AGRUPANDO_POR   reduce using rule 42 (tabla -> ID .)
+    WHERE_DEL_GROUP_BY reduce using rule 42 (tabla -> ID .)
+    MEZCLANDO       reduce using rule 42 (tabla -> ID .)
+    $end            reduce using rule 42 (tabla -> ID .)
+    AGREGA_LA_COLUMNA reduce using rule 42 (tabla -> ID .)
+    CREA_LA_TABLA   reduce using rule 42 (tabla -> ID .)
+    TIRA_LA_TABLA   reduce using rule 42 (tabla -> ID .)
+    ELIMINA_LA_COLUMNA reduce using rule 42 (tabla -> ID .)
+    EN              reduce using rule 42 (tabla -> ID .)
+
+
+state 15
+
+    (3) query -> ACTUALIZA tabla . SETEA columna comparador valor opcionales
+
+    SETEA           shift and go to state 22
+
+
+state 16
+
+    (4) query -> BORRA_DE_LA tabla . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    opcionales                     shift and go to state 23
+    where                          shift and go to state 24
+    group                          shift and go to state 25
+    having                         shift and go to state 26
+    join                           shift and go to state 27
+    empty                          shift and go to state 28
+
+state 17
+
+    (5) query -> CAMBIA_LA_TABLA tabla . alter_opcionales
+    (32) alter_opcionales -> . add alter_opcionales
+    (33) alter_opcionales -> . create alter_opcionales
+    (34) alter_opcionales -> . drop_table alter_opcionales
+    (35) alter_opcionales -> . drop_column alter_opcionales
+    (36) alter_opcionales -> . empty
+    (20) add -> . AGREGA_LA_COLUMNA columna tipo_dato constraint
+    (28) create -> . CREA_LA_TABLA tabla
+    (29) create -> . empty
+    (30) drop_table -> . TIRA_LA_TABLA tabla
+    (31) drop_table -> . empty
+    (21) drop_column -> . ELIMINA_LA_COLUMNA columna
+    (22) drop_column -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for AGREGA_LA_COLUMNA resolved as shift
+  ! shift/reduce conflict for CREA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for TIRA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for ELIMINA_LA_COLUMNA resolved as shift
+    AGREGA_LA_COLUMNA shift and go to state 39
+    CREA_LA_TABLA   shift and go to state 40
+    TIRA_LA_TABLA   shift and go to state 41
+    ELIMINA_LA_COLUMNA shift and go to state 42
+    $end            reduce using rule 58 (empty -> .)
+
+  ! AGREGA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+
+    alter_opcionales               shift and go to state 33
+    add                            shift and go to state 34
+    create                         shift and go to state 35
+    drop_table                     shift and go to state 36
+    drop_column                    shift and go to state 37
+    empty                          shift and go to state 38
+
+state 18
+
+    (1) query -> TRAEME seleccion DE_LA_TABLA . tabla opcionales
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 43
+
+state 19
+
+    (39) seleccion -> LOS_DISTINTOS columna .
+
+    DE_LA_TABLA     reduce using rule 39 (seleccion -> LOS_DISTINTOS columna .)
+    DONDE           reduce using rule 39 (seleccion -> LOS_DISTINTOS columna .)
+    AGRUPANDO_POR   reduce using rule 39 (seleccion -> LOS_DISTINTOS columna .)
+    WHERE_DEL_GROUP_BY reduce using rule 39 (seleccion -> LOS_DISTINTOS columna .)
+    MEZCLANDO       reduce using rule 39 (seleccion -> LOS_DISTINTOS columna .)
+    $end            reduce using rule 39 (seleccion -> LOS_DISTINTOS columna .)
+
+
+state 20
+
+    (40) seleccion -> CONTANDO LPAREN . ASTERISK RPAREN
+    (41) seleccion -> CONTANDO LPAREN . TODO RPAREN
+
+    ASTERISK        shift and go to state 44
+    TODO            shift and go to state 45
+
+
+state 21
+
+    (2) query -> METE_EN tabla LPAREN . columnas RPAREN LOS_VALORES LPAREN valores RPAREN
+    (44) columnas -> . columna
+    (45) columnas -> . columna COMMA columnas
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columnas                       shift and go to state 46
+    columna                        shift and go to state 47
+
+state 22
+
+    (3) query -> ACTUALIZA tabla SETEA . columna comparador valor opcionales
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 48
+
+state 23
+
+    (4) query -> BORRA_DE_LA tabla opcionales .
+
+    $end            reduce using rule 4 (query -> BORRA_DE_LA tabla opcionales .)
+
+
+state 24
+
+    (6) opcionales -> where . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    where                          shift and go to state 24
+    opcionales                     shift and go to state 49
+    group                          shift and go to state 25
+    having                         shift and go to state 26
+    join                           shift and go to state 27
+    empty                          shift and go to state 28
+
+state 25
+
+    (7) opcionales -> group . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    group                          shift and go to state 25
+    opcionales                     shift and go to state 50
+    where                          shift and go to state 24
+    having                         shift and go to state 26
+    join                           shift and go to state 27
+    empty                          shift and go to state 28
+
+state 26
+
+    (8) opcionales -> having . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    having                         shift and go to state 26
+    opcionales                     shift and go to state 51
+    where                          shift and go to state 24
+    group                          shift and go to state 25
+    join                           shift and go to state 27
+    empty                          shift and go to state 28
+
+state 27
+
+    (9) opcionales -> join . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    join                           shift and go to state 27
+    opcionales                     shift and go to state 52
+    where                          shift and go to state 24
+    group                          shift and go to state 25
+    having                         shift and go to state 26
+    empty                          shift and go to state 28
+
+state 28
+
+    (10) opcionales -> empty .
+    (19) where -> empty .
+    (14) group -> empty .
+    (17) having -> empty .
+    (12) join -> empty .
+
+  ! reduce/reduce conflict for $end resolved using rule 10 (opcionales -> empty .)
+  ! reduce/reduce conflict for DONDE resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for AGRUPANDO_POR resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for WHERE_DEL_GROUP_BY resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for MEZCLANDO resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 10 (opcionales -> empty .)
+  ! reduce/reduce conflict for DONDE resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for AGRUPANDO_POR resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for WHERE_DEL_GROUP_BY resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for MEZCLANDO resolved using rule 14 (group -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 10 (opcionales -> empty .)
+  ! reduce/reduce conflict for DONDE resolved using rule 12 (join -> empty .)
+  ! reduce/reduce conflict for AGRUPANDO_POR resolved using rule 12 (join -> empty .)
+  ! reduce/reduce conflict for WHERE_DEL_GROUP_BY resolved using rule 12 (join -> empty .)
+  ! reduce/reduce conflict for MEZCLANDO resolved using rule 12 (join -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 10 (opcionales -> empty .)
+    $end            reduce using rule 10 (opcionales -> empty .)
+    DONDE           reduce using rule 12 (join -> empty .)
+    AGRUPANDO_POR   reduce using rule 12 (join -> empty .)
+    WHERE_DEL_GROUP_BY reduce using rule 12 (join -> empty .)
+    MEZCLANDO       reduce using rule 12 (join -> empty .)
+
+  ! DONDE           [ reduce using rule 19 (where -> empty .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 19 (where -> empty .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 19 (where -> empty .) ]
+  ! MEZCLANDO       [ reduce using rule 19 (where -> empty .) ]
+  ! $end            [ reduce using rule 19 (where -> empty .) ]
+  ! DONDE           [ reduce using rule 14 (group -> empty .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 14 (group -> empty .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 14 (group -> empty .) ]
+  ! MEZCLANDO       [ reduce using rule 14 (group -> empty .) ]
+  ! $end            [ reduce using rule 14 (group -> empty .) ]
+  ! DONDE           [ reduce using rule 17 (having -> empty .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 17 (having -> empty .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 17 (having -> empty .) ]
+  ! MEZCLANDO       [ reduce using rule 17 (having -> empty .) ]
+  ! $end            [ reduce using rule 17 (having -> empty .) ]
+  ! $end            [ reduce using rule 12 (join -> empty .) ]
+
+
+state 29
+
+    (18) where -> DONDE . condicion
+    (23) condicion -> . columna comparador valor
+    (24) condicion -> . columna ENTRE valor COMMA valor
+    (25) condicion -> . columna ENTRE valor Y valor
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    condicion                      shift and go to state 53
+    columna                        shift and go to state 54
+
+state 30
+
+    (13) group -> AGRUPANDO_POR . columna
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 55
+
+state 31
+
+    (15) having -> WHERE_DEL_GROUP_BY . condicion
+    (16) having -> WHERE_DEL_GROUP_BY . seleccion
+    (23) condicion -> . columna comparador valor
+    (24) condicion -> . columna ENTRE valor COMMA valor
+    (25) condicion -> . columna ENTRE valor Y valor
+    (37) seleccion -> . TODO
+    (38) seleccion -> . columna
+    (39) seleccion -> . LOS_DISTINTOS columna
+    (40) seleccion -> . CONTANDO LPAREN ASTERISK RPAREN
+    (41) seleccion -> . CONTANDO LPAREN TODO RPAREN
+    (43) columna -> . ID
+
+    TODO            shift and go to state 8
+    LOS_DISTINTOS   shift and go to state 10
+    CONTANDO        shift and go to state 11
+    ID              shift and go to state 12
+
+    condicion                      shift and go to state 56
+    seleccion                      shift and go to state 57
+    columna                        shift and go to state 58
+
+state 32
+
+    (11) join -> MEZCLANDO . tabla EN columna comparador columna
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 59
+
+state 33
+
+    (5) query -> CAMBIA_LA_TABLA tabla alter_opcionales .
+
+    $end            reduce using rule 5 (query -> CAMBIA_LA_TABLA tabla alter_opcionales .)
+
+
+state 34
+
+    (32) alter_opcionales -> add . alter_opcionales
+    (32) alter_opcionales -> . add alter_opcionales
+    (33) alter_opcionales -> . create alter_opcionales
+    (34) alter_opcionales -> . drop_table alter_opcionales
+    (35) alter_opcionales -> . drop_column alter_opcionales
+    (36) alter_opcionales -> . empty
+    (20) add -> . AGREGA_LA_COLUMNA columna tipo_dato constraint
+    (28) create -> . CREA_LA_TABLA tabla
+    (29) create -> . empty
+    (30) drop_table -> . TIRA_LA_TABLA tabla
+    (31) drop_table -> . empty
+    (21) drop_column -> . ELIMINA_LA_COLUMNA columna
+    (22) drop_column -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for AGREGA_LA_COLUMNA resolved as shift
+  ! shift/reduce conflict for CREA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for TIRA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for ELIMINA_LA_COLUMNA resolved as shift
+    AGREGA_LA_COLUMNA shift and go to state 39
+    CREA_LA_TABLA   shift and go to state 40
+    TIRA_LA_TABLA   shift and go to state 41
+    ELIMINA_LA_COLUMNA shift and go to state 42
+    $end            reduce using rule 58 (empty -> .)
+
+  ! AGREGA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+
+    add                            shift and go to state 34
+    alter_opcionales               shift and go to state 60
+    create                         shift and go to state 35
+    drop_table                     shift and go to state 36
+    drop_column                    shift and go to state 37
+    empty                          shift and go to state 38
+
+state 35
+
+    (33) alter_opcionales -> create . alter_opcionales
+    (32) alter_opcionales -> . add alter_opcionales
+    (33) alter_opcionales -> . create alter_opcionales
+    (34) alter_opcionales -> . drop_table alter_opcionales
+    (35) alter_opcionales -> . drop_column alter_opcionales
+    (36) alter_opcionales -> . empty
+    (20) add -> . AGREGA_LA_COLUMNA columna tipo_dato constraint
+    (28) create -> . CREA_LA_TABLA tabla
+    (29) create -> . empty
+    (30) drop_table -> . TIRA_LA_TABLA tabla
+    (31) drop_table -> . empty
+    (21) drop_column -> . ELIMINA_LA_COLUMNA columna
+    (22) drop_column -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for AGREGA_LA_COLUMNA resolved as shift
+  ! shift/reduce conflict for CREA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for TIRA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for ELIMINA_LA_COLUMNA resolved as shift
+    AGREGA_LA_COLUMNA shift and go to state 39
+    CREA_LA_TABLA   shift and go to state 40
+    TIRA_LA_TABLA   shift and go to state 41
+    ELIMINA_LA_COLUMNA shift and go to state 42
+    $end            reduce using rule 58 (empty -> .)
+
+  ! AGREGA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+
+    create                         shift and go to state 35
+    alter_opcionales               shift and go to state 61
+    add                            shift and go to state 34
+    drop_table                     shift and go to state 36
+    drop_column                    shift and go to state 37
+    empty                          shift and go to state 38
+
+state 36
+
+    (34) alter_opcionales -> drop_table . alter_opcionales
+    (32) alter_opcionales -> . add alter_opcionales
+    (33) alter_opcionales -> . create alter_opcionales
+    (34) alter_opcionales -> . drop_table alter_opcionales
+    (35) alter_opcionales -> . drop_column alter_opcionales
+    (36) alter_opcionales -> . empty
+    (20) add -> . AGREGA_LA_COLUMNA columna tipo_dato constraint
+    (28) create -> . CREA_LA_TABLA tabla
+    (29) create -> . empty
+    (30) drop_table -> . TIRA_LA_TABLA tabla
+    (31) drop_table -> . empty
+    (21) drop_column -> . ELIMINA_LA_COLUMNA columna
+    (22) drop_column -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for AGREGA_LA_COLUMNA resolved as shift
+  ! shift/reduce conflict for CREA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for TIRA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for ELIMINA_LA_COLUMNA resolved as shift
+    AGREGA_LA_COLUMNA shift and go to state 39
+    CREA_LA_TABLA   shift and go to state 40
+    TIRA_LA_TABLA   shift and go to state 41
+    ELIMINA_LA_COLUMNA shift and go to state 42
+    $end            reduce using rule 58 (empty -> .)
+
+  ! AGREGA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+
+    drop_table                     shift and go to state 36
+    alter_opcionales               shift and go to state 62
+    add                            shift and go to state 34
+    create                         shift and go to state 35
+    drop_column                    shift and go to state 37
+    empty                          shift and go to state 38
+
+state 37
+
+    (35) alter_opcionales -> drop_column . alter_opcionales
+    (32) alter_opcionales -> . add alter_opcionales
+    (33) alter_opcionales -> . create alter_opcionales
+    (34) alter_opcionales -> . drop_table alter_opcionales
+    (35) alter_opcionales -> . drop_column alter_opcionales
+    (36) alter_opcionales -> . empty
+    (20) add -> . AGREGA_LA_COLUMNA columna tipo_dato constraint
+    (28) create -> . CREA_LA_TABLA tabla
+    (29) create -> . empty
+    (30) drop_table -> . TIRA_LA_TABLA tabla
+    (31) drop_table -> . empty
+    (21) drop_column -> . ELIMINA_LA_COLUMNA columna
+    (22) drop_column -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for AGREGA_LA_COLUMNA resolved as shift
+  ! shift/reduce conflict for CREA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for TIRA_LA_TABLA resolved as shift
+  ! shift/reduce conflict for ELIMINA_LA_COLUMNA resolved as shift
+    AGREGA_LA_COLUMNA shift and go to state 39
+    CREA_LA_TABLA   shift and go to state 40
+    TIRA_LA_TABLA   shift and go to state 41
+    ELIMINA_LA_COLUMNA shift and go to state 42
+    $end            reduce using rule 58 (empty -> .)
+
+  ! AGREGA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 58 (empty -> .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 58 (empty -> .) ]
+
+    drop_column                    shift and go to state 37
+    alter_opcionales               shift and go to state 63
+    add                            shift and go to state 34
+    create                         shift and go to state 35
+    drop_table                     shift and go to state 36
+    empty                          shift and go to state 38
+
+state 38
+
+    (36) alter_opcionales -> empty .
+    (29) create -> empty .
+    (31) drop_table -> empty .
+    (22) drop_column -> empty .
+
+  ! reduce/reduce conflict for $end resolved using rule 29 (create -> empty .)
+  ! reduce/reduce conflict for AGREGA_LA_COLUMNA resolved using rule 29 (create -> empty .)
+  ! reduce/reduce conflict for CREA_LA_TABLA resolved using rule 29 (create -> empty .)
+  ! reduce/reduce conflict for TIRA_LA_TABLA resolved using rule 29 (create -> empty .)
+  ! reduce/reduce conflict for ELIMINA_LA_COLUMNA resolved using rule 29 (create -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 29 (create -> empty .)
+  ! reduce/reduce conflict for AGREGA_LA_COLUMNA resolved using rule 22 (drop_column -> empty .)
+  ! reduce/reduce conflict for CREA_LA_TABLA resolved using rule 22 (drop_column -> empty .)
+  ! reduce/reduce conflict for TIRA_LA_TABLA resolved using rule 22 (drop_column -> empty .)
+  ! reduce/reduce conflict for ELIMINA_LA_COLUMNA resolved using rule 22 (drop_column -> empty .)
+  ! reduce/reduce conflict for $end resolved using rule 22 (drop_column -> empty .)
+    AGREGA_LA_COLUMNA reduce using rule 22 (drop_column -> empty .)
+    CREA_LA_TABLA   reduce using rule 22 (drop_column -> empty .)
+    TIRA_LA_TABLA   reduce using rule 22 (drop_column -> empty .)
+    ELIMINA_LA_COLUMNA reduce using rule 22 (drop_column -> empty .)
+    $end            reduce using rule 22 (drop_column -> empty .)
+
+  ! $end            [ reduce using rule 36 (alter_opcionales -> empty .) ]
+  ! AGREGA_LA_COLUMNA [ reduce using rule 29 (create -> empty .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 29 (create -> empty .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 29 (create -> empty .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 29 (create -> empty .) ]
+  ! $end            [ reduce using rule 29 (create -> empty .) ]
+  ! AGREGA_LA_COLUMNA [ reduce using rule 31 (drop_table -> empty .) ]
+  ! CREA_LA_TABLA   [ reduce using rule 31 (drop_table -> empty .) ]
+  ! TIRA_LA_TABLA   [ reduce using rule 31 (drop_table -> empty .) ]
+  ! ELIMINA_LA_COLUMNA [ reduce using rule 31 (drop_table -> empty .) ]
+  ! $end            [ reduce using rule 31 (drop_table -> empty .) ]
+
+
+state 39
+
+    (20) add -> AGREGA_LA_COLUMNA . columna tipo_dato constraint
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 64
+
+state 40
+
+    (28) create -> CREA_LA_TABLA . tabla
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 65
+
+state 41
+
+    (30) drop_table -> TIRA_LA_TABLA . tabla
+    (42) tabla -> . ID
+
+    ID              shift and go to state 14
+
+    tabla                          shift and go to state 66
+
+state 42
+
+    (21) drop_column -> ELIMINA_LA_COLUMNA . columna
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 67
+
+state 43
+
+    (1) query -> TRAEME seleccion DE_LA_TABLA tabla . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    opcionales                     shift and go to state 68
+    where                          shift and go to state 24
+    group                          shift and go to state 25
+    having                         shift and go to state 26
+    join                           shift and go to state 27
+    empty                          shift and go to state 28
+
+state 44
+
+    (40) seleccion -> CONTANDO LPAREN ASTERISK . RPAREN
+
+    RPAREN          shift and go to state 69
+
+
+state 45
+
+    (41) seleccion -> CONTANDO LPAREN TODO . RPAREN
+
+    RPAREN          shift and go to state 70
+
+
+state 46
+
+    (2) query -> METE_EN tabla LPAREN columnas . RPAREN LOS_VALORES LPAREN valores RPAREN
+
+    RPAREN          shift and go to state 71
+
+
+state 47
+
+    (44) columnas -> columna .
+    (45) columnas -> columna . COMMA columnas
+
+    RPAREN          reduce using rule 44 (columnas -> columna .)
+    COMMA           shift and go to state 72
+
+
+state 48
+
+    (3) query -> ACTUALIZA tabla SETEA columna . comparador valor opcionales
+    (46) comparador -> . COMPARADORES
+    (47) comparador -> . empty
+    (58) empty -> .
+
+    COMPARADORES    shift and go to state 74
+    NUMBER          reduce using rule 58 (empty -> .)
+    ID              reduce using rule 58 (empty -> .)
+    STRING          reduce using rule 58 (empty -> .)
+    LPAREN          reduce using rule 58 (empty -> .)
+
+    comparador                     shift and go to state 73
+    empty                          shift and go to state 75
+
+state 49
+
+    (6) opcionales -> where opcionales .
+
+    $end            reduce using rule 6 (opcionales -> where opcionales .)
+
+
+state 50
+
+    (7) opcionales -> group opcionales .
+
+    $end            reduce using rule 7 (opcionales -> group opcionales .)
+
+
+state 51
+
+    (8) opcionales -> having opcionales .
+
+    $end            reduce using rule 8 (opcionales -> having opcionales .)
+
+
+state 52
+
+    (9) opcionales -> join opcionales .
+
+    $end            reduce using rule 9 (opcionales -> join opcionales .)
+
+
+state 53
+
+    (18) where -> DONDE condicion .
+
+    DONDE           reduce using rule 18 (where -> DONDE condicion .)
+    AGRUPANDO_POR   reduce using rule 18 (where -> DONDE condicion .)
+    WHERE_DEL_GROUP_BY reduce using rule 18 (where -> DONDE condicion .)
+    MEZCLANDO       reduce using rule 18 (where -> DONDE condicion .)
+    $end            reduce using rule 18 (where -> DONDE condicion .)
+
+
+state 54
+
+    (23) condicion -> columna . comparador valor
+    (24) condicion -> columna . ENTRE valor COMMA valor
+    (25) condicion -> columna . ENTRE valor Y valor
+    (46) comparador -> . COMPARADORES
+    (47) comparador -> . empty
+    (58) empty -> .
+
+    ENTRE           shift and go to state 77
+    COMPARADORES    shift and go to state 74
+    NUMBER          reduce using rule 58 (empty -> .)
+    ID              reduce using rule 58 (empty -> .)
+    STRING          reduce using rule 58 (empty -> .)
+    LPAREN          reduce using rule 58 (empty -> .)
+
+    comparador                     shift and go to state 76
+    empty                          shift and go to state 75
+
+state 55
+
+    (13) group -> AGRUPANDO_POR columna .
+
+    DONDE           reduce using rule 13 (group -> AGRUPANDO_POR columna .)
+    AGRUPANDO_POR   reduce using rule 13 (group -> AGRUPANDO_POR columna .)
+    WHERE_DEL_GROUP_BY reduce using rule 13 (group -> AGRUPANDO_POR columna .)
+    MEZCLANDO       reduce using rule 13 (group -> AGRUPANDO_POR columna .)
+    $end            reduce using rule 13 (group -> AGRUPANDO_POR columna .)
+
+
+state 56
+
+    (15) having -> WHERE_DEL_GROUP_BY condicion .
+
+    DONDE           reduce using rule 15 (having -> WHERE_DEL_GROUP_BY condicion .)
+    AGRUPANDO_POR   reduce using rule 15 (having -> WHERE_DEL_GROUP_BY condicion .)
+    WHERE_DEL_GROUP_BY reduce using rule 15 (having -> WHERE_DEL_GROUP_BY condicion .)
+    MEZCLANDO       reduce using rule 15 (having -> WHERE_DEL_GROUP_BY condicion .)
+    $end            reduce using rule 15 (having -> WHERE_DEL_GROUP_BY condicion .)
+
+
+state 57
+
+    (16) having -> WHERE_DEL_GROUP_BY seleccion .
+
+    DONDE           reduce using rule 16 (having -> WHERE_DEL_GROUP_BY seleccion .)
+    AGRUPANDO_POR   reduce using rule 16 (having -> WHERE_DEL_GROUP_BY seleccion .)
+    WHERE_DEL_GROUP_BY reduce using rule 16 (having -> WHERE_DEL_GROUP_BY seleccion .)
+    MEZCLANDO       reduce using rule 16 (having -> WHERE_DEL_GROUP_BY seleccion .)
+    $end            reduce using rule 16 (having -> WHERE_DEL_GROUP_BY seleccion .)
+
+
+state 58
+
+    (23) condicion -> columna . comparador valor
+    (24) condicion -> columna . ENTRE valor COMMA valor
+    (25) condicion -> columna . ENTRE valor Y valor
+    (38) seleccion -> columna .
+    (46) comparador -> . COMPARADORES
+    (47) comparador -> . empty
+    (58) empty -> .
+
+    ENTRE           shift and go to state 77
+    DONDE           reduce using rule 38 (seleccion -> columna .)
+    AGRUPANDO_POR   reduce using rule 38 (seleccion -> columna .)
+    WHERE_DEL_GROUP_BY reduce using rule 38 (seleccion -> columna .)
+    MEZCLANDO       reduce using rule 38 (seleccion -> columna .)
+    $end            reduce using rule 38 (seleccion -> columna .)
+    COMPARADORES    shift and go to state 74
+    NUMBER          reduce using rule 58 (empty -> .)
+    ID              reduce using rule 58 (empty -> .)
+    STRING          reduce using rule 58 (empty -> .)
+    LPAREN          reduce using rule 58 (empty -> .)
+
+    comparador                     shift and go to state 76
+    empty                          shift and go to state 75
+
+state 59
+
+    (11) join -> MEZCLANDO tabla . EN columna comparador columna
+
+    EN              shift and go to state 78
+
+
+state 60
+
+    (32) alter_opcionales -> add alter_opcionales .
+
+    $end            reduce using rule 32 (alter_opcionales -> add alter_opcionales .)
+
+
+state 61
+
+    (33) alter_opcionales -> create alter_opcionales .
+
+    $end            reduce using rule 33 (alter_opcionales -> create alter_opcionales .)
+
+
+state 62
+
+    (34) alter_opcionales -> drop_table alter_opcionales .
+
+    $end            reduce using rule 34 (alter_opcionales -> drop_table alter_opcionales .)
+
+
+state 63
+
+    (35) alter_opcionales -> drop_column alter_opcionales .
+
+    $end            reduce using rule 35 (alter_opcionales -> drop_column alter_opcionales .)
+
+
+state 64
+
+    (20) add -> AGREGA_LA_COLUMNA columna . tipo_dato constraint
+    (54) tipo_dato -> . ID LPAREN NUMBER RPAREN
+    (55) tipo_dato -> . ID
+
+    ID              shift and go to state 80
+
+    tipo_dato                      shift and go to state 79
+
+state 65
+
+    (28) create -> CREA_LA_TABLA tabla .
+
+    AGREGA_LA_COLUMNA reduce using rule 28 (create -> CREA_LA_TABLA tabla .)
+    CREA_LA_TABLA   reduce using rule 28 (create -> CREA_LA_TABLA tabla .)
+    TIRA_LA_TABLA   reduce using rule 28 (create -> CREA_LA_TABLA tabla .)
+    ELIMINA_LA_COLUMNA reduce using rule 28 (create -> CREA_LA_TABLA tabla .)
+    $end            reduce using rule 28 (create -> CREA_LA_TABLA tabla .)
+
+
+state 66
+
+    (30) drop_table -> TIRA_LA_TABLA tabla .
+
+    AGREGA_LA_COLUMNA reduce using rule 30 (drop_table -> TIRA_LA_TABLA tabla .)
+    CREA_LA_TABLA   reduce using rule 30 (drop_table -> TIRA_LA_TABLA tabla .)
+    TIRA_LA_TABLA   reduce using rule 30 (drop_table -> TIRA_LA_TABLA tabla .)
+    ELIMINA_LA_COLUMNA reduce using rule 30 (drop_table -> TIRA_LA_TABLA tabla .)
+    $end            reduce using rule 30 (drop_table -> TIRA_LA_TABLA tabla .)
+
+
+state 67
+
+    (21) drop_column -> ELIMINA_LA_COLUMNA columna .
+
+    AGREGA_LA_COLUMNA reduce using rule 21 (drop_column -> ELIMINA_LA_COLUMNA columna .)
+    CREA_LA_TABLA   reduce using rule 21 (drop_column -> ELIMINA_LA_COLUMNA columna .)
+    TIRA_LA_TABLA   reduce using rule 21 (drop_column -> ELIMINA_LA_COLUMNA columna .)
+    ELIMINA_LA_COLUMNA reduce using rule 21 (drop_column -> ELIMINA_LA_COLUMNA columna .)
+    $end            reduce using rule 21 (drop_column -> ELIMINA_LA_COLUMNA columna .)
+
+
+state 68
+
+    (1) query -> TRAEME seleccion DE_LA_TABLA tabla opcionales .
+
+    $end            reduce using rule 1 (query -> TRAEME seleccion DE_LA_TABLA tabla opcionales .)
+
+
+state 69
+
+    (40) seleccion -> CONTANDO LPAREN ASTERISK RPAREN .
+
+    DE_LA_TABLA     reduce using rule 40 (seleccion -> CONTANDO LPAREN ASTERISK RPAREN .)
+    DONDE           reduce using rule 40 (seleccion -> CONTANDO LPAREN ASTERISK RPAREN .)
+    AGRUPANDO_POR   reduce using rule 40 (seleccion -> CONTANDO LPAREN ASTERISK RPAREN .)
+    WHERE_DEL_GROUP_BY reduce using rule 40 (seleccion -> CONTANDO LPAREN ASTERISK RPAREN .)
+    MEZCLANDO       reduce using rule 40 (seleccion -> CONTANDO LPAREN ASTERISK RPAREN .)
+    $end            reduce using rule 40 (seleccion -> CONTANDO LPAREN ASTERISK RPAREN .)
+
+
+state 70
+
+    (41) seleccion -> CONTANDO LPAREN TODO RPAREN .
+
+    DE_LA_TABLA     reduce using rule 41 (seleccion -> CONTANDO LPAREN TODO RPAREN .)
+    DONDE           reduce using rule 41 (seleccion -> CONTANDO LPAREN TODO RPAREN .)
+    AGRUPANDO_POR   reduce using rule 41 (seleccion -> CONTANDO LPAREN TODO RPAREN .)
+    WHERE_DEL_GROUP_BY reduce using rule 41 (seleccion -> CONTANDO LPAREN TODO RPAREN .)
+    MEZCLANDO       reduce using rule 41 (seleccion -> CONTANDO LPAREN TODO RPAREN .)
+    $end            reduce using rule 41 (seleccion -> CONTANDO LPAREN TODO RPAREN .)
+
+
+state 71
+
+    (2) query -> METE_EN tabla LPAREN columnas RPAREN . LOS_VALORES LPAREN valores RPAREN
+
+    LOS_VALORES     shift and go to state 81
+
+
+state 72
+
+    (45) columnas -> columna COMMA . columnas
+    (44) columnas -> . columna
+    (45) columnas -> . columna COMMA columnas
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 47
+    columnas                       shift and go to state 82
+
+state 73
+
+    (3) query -> ACTUALIZA tabla SETEA columna comparador . valor opcionales
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 83
+
+state 74
+
+    (46) comparador -> COMPARADORES .
+
+    NUMBER          reduce using rule 46 (comparador -> COMPARADORES .)
+    ID              reduce using rule 46 (comparador -> COMPARADORES .)
+    STRING          reduce using rule 46 (comparador -> COMPARADORES .)
+    LPAREN          reduce using rule 46 (comparador -> COMPARADORES .)
+
+
+state 75
+
+    (47) comparador -> empty .
+
+    NUMBER          reduce using rule 47 (comparador -> empty .)
+    ID              reduce using rule 47 (comparador -> empty .)
+    STRING          reduce using rule 47 (comparador -> empty .)
+    LPAREN          reduce using rule 47 (comparador -> empty .)
+
+
+state 76
+
+    (23) condicion -> columna comparador . valor
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 88
+
+state 77
+
+    (24) condicion -> columna ENTRE . valor COMMA valor
+    (25) condicion -> columna ENTRE . valor Y valor
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 89
+
+state 78
+
+    (11) join -> MEZCLANDO tabla EN . columna comparador columna
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 90
+
+state 79
+
+    (20) add -> AGREGA_LA_COLUMNA columna tipo_dato . constraint
+    (56) constraint -> . NO_NULO
+    (57) constraint -> . empty
+    (58) empty -> .
+
+    NO_NULO         shift and go to state 92
+    AGREGA_LA_COLUMNA reduce using rule 58 (empty -> .)
+    CREA_LA_TABLA   reduce using rule 58 (empty -> .)
+    TIRA_LA_TABLA   reduce using rule 58 (empty -> .)
+    ELIMINA_LA_COLUMNA reduce using rule 58 (empty -> .)
+    $end            reduce using rule 58 (empty -> .)
+
+    constraint                     shift and go to state 91
+    empty                          shift and go to state 93
+
+state 80
+
+    (54) tipo_dato -> ID . LPAREN NUMBER RPAREN
+    (55) tipo_dato -> ID .
+
+    LPAREN          shift and go to state 94
+    NO_NULO         reduce using rule 55 (tipo_dato -> ID .)
+    AGREGA_LA_COLUMNA reduce using rule 55 (tipo_dato -> ID .)
+    CREA_LA_TABLA   reduce using rule 55 (tipo_dato -> ID .)
+    TIRA_LA_TABLA   reduce using rule 55 (tipo_dato -> ID .)
+    ELIMINA_LA_COLUMNA reduce using rule 55 (tipo_dato -> ID .)
+    $end            reduce using rule 55 (tipo_dato -> ID .)
+
+
+state 81
+
+    (2) query -> METE_EN tabla LPAREN columnas RPAREN LOS_VALORES . LPAREN valores RPAREN
+
+    LPAREN          shift and go to state 95
+
+
+state 82
+
+    (45) columnas -> columna COMMA columnas .
+
+    RPAREN          reduce using rule 45 (columnas -> columna COMMA columnas .)
+
+
+state 83
+
+    (3) query -> ACTUALIZA tabla SETEA columna comparador valor . opcionales
+    (6) opcionales -> . where opcionales
+    (7) opcionales -> . group opcionales
+    (8) opcionales -> . having opcionales
+    (9) opcionales -> . join opcionales
+    (10) opcionales -> . empty
+    (18) where -> . DONDE condicion
+    (19) where -> . empty
+    (13) group -> . AGRUPANDO_POR columna
+    (14) group -> . empty
+    (15) having -> . WHERE_DEL_GROUP_BY condicion
+    (16) having -> . WHERE_DEL_GROUP_BY seleccion
+    (17) having -> . empty
+    (11) join -> . MEZCLANDO tabla EN columna comparador columna
+    (12) join -> . empty
+    (58) empty -> .
+
+  ! shift/reduce conflict for DONDE resolved as shift
+  ! shift/reduce conflict for AGRUPANDO_POR resolved as shift
+  ! shift/reduce conflict for WHERE_DEL_GROUP_BY resolved as shift
+  ! shift/reduce conflict for MEZCLANDO resolved as shift
+    DONDE           shift and go to state 29
+    AGRUPANDO_POR   shift and go to state 30
+    WHERE_DEL_GROUP_BY shift and go to state 31
+    MEZCLANDO       shift and go to state 32
+    $end            reduce using rule 58 (empty -> .)
+
+  ! DONDE           [ reduce using rule 58 (empty -> .) ]
+  ! AGRUPANDO_POR   [ reduce using rule 58 (empty -> .) ]
+  ! WHERE_DEL_GROUP_BY [ reduce using rule 58 (empty -> .) ]
+  ! MEZCLANDO       [ reduce using rule 58 (empty -> .) ]
+
+    opcionales                     shift and go to state 96
+    where                          shift and go to state 24
+    group                          shift and go to state 25
+    having                         shift and go to state 26
+    join                           shift and go to state 27
+    empty                          shift and go to state 28
+
+state 84
+
+    (48) valor -> NUMBER .
+
+    DONDE           reduce using rule 48 (valor -> NUMBER .)
+    AGRUPANDO_POR   reduce using rule 48 (valor -> NUMBER .)
+    WHERE_DEL_GROUP_BY reduce using rule 48 (valor -> NUMBER .)
+    MEZCLANDO       reduce using rule 48 (valor -> NUMBER .)
+    $end            reduce using rule 48 (valor -> NUMBER .)
+    COMMA           reduce using rule 48 (valor -> NUMBER .)
+    Y               reduce using rule 48 (valor -> NUMBER .)
+    RPAREN          reduce using rule 48 (valor -> NUMBER .)
+
+
+state 85
+
+    (49) valor -> ID .
+
+    DONDE           reduce using rule 49 (valor -> ID .)
+    AGRUPANDO_POR   reduce using rule 49 (valor -> ID .)
+    WHERE_DEL_GROUP_BY reduce using rule 49 (valor -> ID .)
+    MEZCLANDO       reduce using rule 49 (valor -> ID .)
+    $end            reduce using rule 49 (valor -> ID .)
+    COMMA           reduce using rule 49 (valor -> ID .)
+    Y               reduce using rule 49 (valor -> ID .)
+    RPAREN          reduce using rule 49 (valor -> ID .)
+
+
+state 86
+
+    (50) valor -> STRING .
+
+    DONDE           reduce using rule 50 (valor -> STRING .)
+    AGRUPANDO_POR   reduce using rule 50 (valor -> STRING .)
+    WHERE_DEL_GROUP_BY reduce using rule 50 (valor -> STRING .)
+    MEZCLANDO       reduce using rule 50 (valor -> STRING .)
+    $end            reduce using rule 50 (valor -> STRING .)
+    COMMA           reduce using rule 50 (valor -> STRING .)
+    Y               reduce using rule 50 (valor -> STRING .)
+    RPAREN          reduce using rule 50 (valor -> STRING .)
+
+
+state 87
+
+    (51) valor -> LPAREN . valor RPAREN
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 97
+
+state 88
+
+    (23) condicion -> columna comparador valor .
+
+    DONDE           reduce using rule 23 (condicion -> columna comparador valor .)
+    AGRUPANDO_POR   reduce using rule 23 (condicion -> columna comparador valor .)
+    WHERE_DEL_GROUP_BY reduce using rule 23 (condicion -> columna comparador valor .)
+    MEZCLANDO       reduce using rule 23 (condicion -> columna comparador valor .)
+    $end            reduce using rule 23 (condicion -> columna comparador valor .)
+
+
+state 89
+
+    (24) condicion -> columna ENTRE valor . COMMA valor
+    (25) condicion -> columna ENTRE valor . Y valor
+
+    COMMA           shift and go to state 98
+    Y               shift and go to state 99
+
+
+state 90
+
+    (11) join -> MEZCLANDO tabla EN columna . comparador columna
+    (46) comparador -> . COMPARADORES
+    (47) comparador -> . empty
+    (58) empty -> .
+
+    COMPARADORES    shift and go to state 74
+    ID              reduce using rule 58 (empty -> .)
+
+    comparador                     shift and go to state 100
+    empty                          shift and go to state 75
+
+state 91
+
+    (20) add -> AGREGA_LA_COLUMNA columna tipo_dato constraint .
+
+    AGREGA_LA_COLUMNA reduce using rule 20 (add -> AGREGA_LA_COLUMNA columna tipo_dato constraint .)
+    CREA_LA_TABLA   reduce using rule 20 (add -> AGREGA_LA_COLUMNA columna tipo_dato constraint .)
+    TIRA_LA_TABLA   reduce using rule 20 (add -> AGREGA_LA_COLUMNA columna tipo_dato constraint .)
+    ELIMINA_LA_COLUMNA reduce using rule 20 (add -> AGREGA_LA_COLUMNA columna tipo_dato constraint .)
+    $end            reduce using rule 20 (add -> AGREGA_LA_COLUMNA columna tipo_dato constraint .)
+
+
+state 92
+
+    (56) constraint -> NO_NULO .
+
+    AGREGA_LA_COLUMNA reduce using rule 56 (constraint -> NO_NULO .)
+    CREA_LA_TABLA   reduce using rule 56 (constraint -> NO_NULO .)
+    TIRA_LA_TABLA   reduce using rule 56 (constraint -> NO_NULO .)
+    ELIMINA_LA_COLUMNA reduce using rule 56 (constraint -> NO_NULO .)
+    $end            reduce using rule 56 (constraint -> NO_NULO .)
+
+
+state 93
+
+    (57) constraint -> empty .
+
+    AGREGA_LA_COLUMNA reduce using rule 57 (constraint -> empty .)
+    CREA_LA_TABLA   reduce using rule 57 (constraint -> empty .)
+    TIRA_LA_TABLA   reduce using rule 57 (constraint -> empty .)
+    ELIMINA_LA_COLUMNA reduce using rule 57 (constraint -> empty .)
+    $end            reduce using rule 57 (constraint -> empty .)
+
+
+state 94
+
+    (54) tipo_dato -> ID LPAREN . NUMBER RPAREN
+
+    NUMBER          shift and go to state 101
+
+
+state 95
+
+    (2) query -> METE_EN tabla LPAREN columnas RPAREN LOS_VALORES LPAREN . valores RPAREN
+    (52) valores -> . valor
+    (53) valores -> . valor COMMA valores
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valores                        shift and go to state 102
+    valor                          shift and go to state 103
+
+state 96
+
+    (3) query -> ACTUALIZA tabla SETEA columna comparador valor opcionales .
+
+    $end            reduce using rule 3 (query -> ACTUALIZA tabla SETEA columna comparador valor opcionales .)
+
+
+state 97
+
+    (51) valor -> LPAREN valor . RPAREN
+
+    RPAREN          shift and go to state 104
+
+
+state 98
+
+    (24) condicion -> columna ENTRE valor COMMA . valor
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 105
+
+state 99
+
+    (25) condicion -> columna ENTRE valor Y . valor
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 106
+
+state 100
+
+    (11) join -> MEZCLANDO tabla EN columna comparador . columna
+    (43) columna -> . ID
+
+    ID              shift and go to state 12
+
+    columna                        shift and go to state 107
+
+state 101
+
+    (54) tipo_dato -> ID LPAREN NUMBER . RPAREN
+
+    RPAREN          shift and go to state 108
+
+
+state 102
+
+    (2) query -> METE_EN tabla LPAREN columnas RPAREN LOS_VALORES LPAREN valores . RPAREN
+
+    RPAREN          shift and go to state 109
+
+
+state 103
+
+    (52) valores -> valor .
+    (53) valores -> valor . COMMA valores
+
+    RPAREN          reduce using rule 52 (valores -> valor .)
+    COMMA           shift and go to state 110
+
+
+state 104
+
+    (51) valor -> LPAREN valor RPAREN .
+
+    DONDE           reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    AGRUPANDO_POR   reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    WHERE_DEL_GROUP_BY reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    MEZCLANDO       reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    $end            reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    COMMA           reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    Y               reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+    RPAREN          reduce using rule 51 (valor -> LPAREN valor RPAREN .)
+
+
+state 105
+
+    (24) condicion -> columna ENTRE valor COMMA valor .
+
+    DONDE           reduce using rule 24 (condicion -> columna ENTRE valor COMMA valor .)
+    AGRUPANDO_POR   reduce using rule 24 (condicion -> columna ENTRE valor COMMA valor .)
+    WHERE_DEL_GROUP_BY reduce using rule 24 (condicion -> columna ENTRE valor COMMA valor .)
+    MEZCLANDO       reduce using rule 24 (condicion -> columna ENTRE valor COMMA valor .)
+    $end            reduce using rule 24 (condicion -> columna ENTRE valor COMMA valor .)
+
+
+state 106
+
+    (25) condicion -> columna ENTRE valor Y valor .
+
+    DONDE           reduce using rule 25 (condicion -> columna ENTRE valor Y valor .)
+    AGRUPANDO_POR   reduce using rule 25 (condicion -> columna ENTRE valor Y valor .)
+    WHERE_DEL_GROUP_BY reduce using rule 25 (condicion -> columna ENTRE valor Y valor .)
+    MEZCLANDO       reduce using rule 25 (condicion -> columna ENTRE valor Y valor .)
+    $end            reduce using rule 25 (condicion -> columna ENTRE valor Y valor .)
+
+
+state 107
+
+    (11) join -> MEZCLANDO tabla EN columna comparador columna .
+
+    DONDE           reduce using rule 11 (join -> MEZCLANDO tabla EN columna comparador columna .)
+    AGRUPANDO_POR   reduce using rule 11 (join -> MEZCLANDO tabla EN columna comparador columna .)
+    WHERE_DEL_GROUP_BY reduce using rule 11 (join -> MEZCLANDO tabla EN columna comparador columna .)
+    MEZCLANDO       reduce using rule 11 (join -> MEZCLANDO tabla EN columna comparador columna .)
+    $end            reduce using rule 11 (join -> MEZCLANDO tabla EN columna comparador columna .)
+
+
+state 108
+
+    (54) tipo_dato -> ID LPAREN NUMBER RPAREN .
+
+    NO_NULO         reduce using rule 54 (tipo_dato -> ID LPAREN NUMBER RPAREN .)
+    AGREGA_LA_COLUMNA reduce using rule 54 (tipo_dato -> ID LPAREN NUMBER RPAREN .)
+    CREA_LA_TABLA   reduce using rule 54 (tipo_dato -> ID LPAREN NUMBER RPAREN .)
+    TIRA_LA_TABLA   reduce using rule 54 (tipo_dato -> ID LPAREN NUMBER RPAREN .)
+    ELIMINA_LA_COLUMNA reduce using rule 54 (tipo_dato -> ID LPAREN NUMBER RPAREN .)
+    $end            reduce using rule 54 (tipo_dato -> ID LPAREN NUMBER RPAREN .)
+
+
+state 109
+
+    (2) query -> METE_EN tabla LPAREN columnas RPAREN LOS_VALORES LPAREN valores RPAREN .
+
+    $end            reduce using rule 2 (query -> METE_EN tabla LPAREN columnas RPAREN LOS_VALORES LPAREN valores RPAREN .)
+
+
+state 110
+
+    (53) valores -> valor COMMA . valores
+    (52) valores -> . valor
+    (53) valores -> . valor COMMA valores
+    (48) valor -> . NUMBER
+    (49) valor -> . ID
+    (50) valor -> . STRING
+    (51) valor -> . LPAREN valor RPAREN
+
+    NUMBER          shift and go to state 84
+    ID              shift and go to state 85
+    STRING          shift and go to state 86
+    LPAREN          shift and go to state 87
+
+    valor                          shift and go to state 103
+    valores                        shift and go to state 111
+
+state 111
+
+    (53) valores -> valor COMMA valores .
+
+    RPAREN          reduce using rule 53 (valores -> valor COMMA valores .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for DONDE in state 16 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 16 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 16 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 16 resolved as shift
+WARNING: shift/reduce conflict for AGREGA_LA_COLUMNA in state 17 resolved as shift
+WARNING: shift/reduce conflict for CREA_LA_TABLA in state 17 resolved as shift
+WARNING: shift/reduce conflict for TIRA_LA_TABLA in state 17 resolved as shift
+WARNING: shift/reduce conflict for ELIMINA_LA_COLUMNA in state 17 resolved as shift
+WARNING: shift/reduce conflict for DONDE in state 24 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 24 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 24 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 24 resolved as shift
+WARNING: shift/reduce conflict for DONDE in state 25 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 25 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 25 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 25 resolved as shift
+WARNING: shift/reduce conflict for DONDE in state 26 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 26 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 26 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 26 resolved as shift
+WARNING: shift/reduce conflict for DONDE in state 27 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 27 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 27 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 27 resolved as shift
+WARNING: shift/reduce conflict for AGREGA_LA_COLUMNA in state 34 resolved as shift
+WARNING: shift/reduce conflict for CREA_LA_TABLA in state 34 resolved as shift
+WARNING: shift/reduce conflict for TIRA_LA_TABLA in state 34 resolved as shift
+WARNING: shift/reduce conflict for ELIMINA_LA_COLUMNA in state 34 resolved as shift
+WARNING: shift/reduce conflict for AGREGA_LA_COLUMNA in state 35 resolved as shift
+WARNING: shift/reduce conflict for CREA_LA_TABLA in state 35 resolved as shift
+WARNING: shift/reduce conflict for TIRA_LA_TABLA in state 35 resolved as shift
+WARNING: shift/reduce conflict for ELIMINA_LA_COLUMNA in state 35 resolved as shift
+WARNING: shift/reduce conflict for AGREGA_LA_COLUMNA in state 36 resolved as shift
+WARNING: shift/reduce conflict for CREA_LA_TABLA in state 36 resolved as shift
+WARNING: shift/reduce conflict for TIRA_LA_TABLA in state 36 resolved as shift
+WARNING: shift/reduce conflict for ELIMINA_LA_COLUMNA in state 36 resolved as shift
+WARNING: shift/reduce conflict for AGREGA_LA_COLUMNA in state 37 resolved as shift
+WARNING: shift/reduce conflict for CREA_LA_TABLA in state 37 resolved as shift
+WARNING: shift/reduce conflict for TIRA_LA_TABLA in state 37 resolved as shift
+WARNING: shift/reduce conflict for ELIMINA_LA_COLUMNA in state 37 resolved as shift
+WARNING: shift/reduce conflict for DONDE in state 43 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 43 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 43 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 43 resolved as shift
+WARNING: shift/reduce conflict for DONDE in state 83 resolved as shift
+WARNING: shift/reduce conflict for AGRUPANDO_POR in state 83 resolved as shift
+WARNING: shift/reduce conflict for WHERE_DEL_GROUP_BY in state 83 resolved as shift
+WARNING: shift/reduce conflict for MEZCLANDO in state 83 resolved as shift
+WARNING: reduce/reduce conflict in state 28 resolved using rule (opcionales -> empty)
+WARNING: rejected rule (where -> empty) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (group -> empty)
+WARNING: rejected rule (where -> empty) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (opcionales -> empty)
+WARNING: rejected rule (group -> empty) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (group -> empty)
+WARNING: rejected rule (having -> empty) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (opcionales -> empty)
+WARNING: rejected rule (having -> empty) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (join -> empty)
+WARNING: rejected rule (group -> empty) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (opcionales -> empty)
+WARNING: rejected rule (join -> empty) in state 28
+WARNING: reduce/reduce conflict in state 38 resolved using rule (create -> empty)
+WARNING: rejected rule (alter_opcionales -> empty) in state 38
+WARNING: reduce/reduce conflict in state 38 resolved using rule (create -> empty)
+WARNING: rejected rule (drop_table -> empty) in state 38
+WARNING: reduce/reduce conflict in state 38 resolved using rule (drop_column -> empty)
+WARNING: rejected rule (create -> empty) in state 38
+WARNING: Rule (where -> empty) is never reduced
+WARNING: Rule (group -> empty) is never reduced
+WARNING: Rule (having -> empty) is never reduced
+WARNING: Rule (alter_opcionales -> empty) is never reduced
+WARNING: Rule (drop_table -> empty) is never reduced
+WARNING: Rule (create -> empty) is never reduced
