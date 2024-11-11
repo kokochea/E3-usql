@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module ESP_ENG</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">ESP_ENG</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:g%3A%5Cmy%20drive%5Cestudios%5Cum%5C2024%20ii%5Cprogramacion%20avanzada%5Cgit%5Centregable%203%5Cesp_eng.py">g:\my drive\estudios\um\2024 ii\programacion avanzada\git\entregable 3\esp_eng.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="ply.lex.html">ply.lex</a><br>
+</td><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+</td><td class="multicolumn"><a href="ply.yacc.html">ply.yacc</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-p_add"><strong>p_add</strong></a>(p)</dt><dd><span class="code">add&nbsp;:&nbsp;AGREGA_LA_COLUMNA&nbsp;columna&nbsp;tipo_dato&nbsp;constraint</span></dd></dl>
+ <dl><dt><a name="-p_alter_opcionales"><strong>p_alter_opcionales</strong></a>(p)</dt><dd><span class="code">alter_opcionales&nbsp;:&nbsp;add<br>
+|&nbsp;drop_column<br>
+|&nbsp;rename<br>
+|&nbsp;create<br>
+|&nbsp;drop_table</span></dd></dl>
+ <dl><dt><a name="-p_columna"><strong>p_columna</strong></a>(p)</dt><dd><span class="code">columna&nbsp;:&nbsp;ID</span></dd></dl>
+ <dl><dt><a name="-p_columnas"><strong>p_columnas</strong></a>(p)</dt><dd><span class="code">columnas&nbsp;:&nbsp;columna<br>
+|&nbsp;columna&nbsp;COMMA&nbsp;columnas</span></dd></dl>
+ <dl><dt><a name="-p_comparador"><strong>p_comparador</strong></a>(p)</dt><dd><span class="code">comparador&nbsp;:&nbsp;COMPARADORES<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_condicion"><strong>p_condicion</strong></a>(p)</dt><dd><span class="code">condicion&nbsp;:&nbsp;columna&nbsp;comparador&nbsp;valor<br>
+|&nbsp;columna&nbsp;ENTRE&nbsp;valor&nbsp;COMMA&nbsp;valor<br>
+|&nbsp;columna&nbsp;ENTRE&nbsp;valor&nbsp;Y&nbsp;valor</span></dd></dl>
+ <dl><dt><a name="-p_constraint"><strong>p_constraint</strong></a>(p)</dt><dd><span class="code">constraint&nbsp;:&nbsp;NO_NULO<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_create"><strong>p_create</strong></a>(p)</dt><dd><span class="code">create&nbsp;:&nbsp;CREA_LA_TABLA&nbsp;tabla<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_drop_column"><strong>p_drop_column</strong></a>(p)</dt><dd><span class="code">drop_column&nbsp;:&nbsp;ELIMINA_LA_COLUMNA&nbsp;columna<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_drop_table"><strong>p_drop_table</strong></a>(p)</dt><dd><span class="code">drop_table&nbsp;:&nbsp;TIRA_LA_TABLA&nbsp;tabla<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_empty"><strong>p_empty</strong></a>(p)</dt><dd><span class="code">empty&nbsp;:</span></dd></dl>
+ <dl><dt><a name="-p_error"><strong>p_error</strong></a>(p)</dt></dl>
+ <dl><dt><a name="-p_group"><strong>p_group</strong></a>(p)</dt><dd><span class="code">group&nbsp;:&nbsp;AGRUPANDO_POR&nbsp;columna<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_having"><strong>p_having</strong></a>(p)</dt><dd><span class="code">having&nbsp;:&nbsp;WHERE_DEL_GROUP_BY&nbsp;condicion<br>
+|&nbsp;WHERE_DEL_GROUP_BY&nbsp;seleccion<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_join"><strong>p_join</strong></a>(p)</dt><dd><span class="code">join&nbsp;:&nbsp;MEZCLANDO&nbsp;tabla&nbsp;EN&nbsp;columna&nbsp;comparador&nbsp;columna<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_opcionales"><strong>p_opcionales</strong></a>(p)</dt><dd><span class="code">opcionales&nbsp;:&nbsp;where&nbsp;opcionales<br>
+|&nbsp;group&nbsp;opcionales<br>
+|&nbsp;having&nbsp;opcionales<br>
+|&nbsp;join&nbsp;opcionales<br>
+|&nbsp;comparador&nbsp;opcionales<br>
+|&nbsp;valor&nbsp;opcionales<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_query_alter_table"><strong>p_query_alter_table</strong></a>(p)</dt><dd><span class="code">query&nbsp;:&nbsp;CAMBIA_LA_TABLA&nbsp;tabla&nbsp;alter_opcionales</span></dd></dl>
+ <dl><dt><a name="-p_query_delete"><strong>p_query_delete</strong></a>(p)</dt><dd><span class="code">query&nbsp;:&nbsp;BORRA_DE_LA&nbsp;tabla&nbsp;opcionales</span></dd></dl>
+ <dl><dt><a name="-p_query_insert"><strong>p_query_insert</strong></a>(p)</dt><dd><span class="code">query&nbsp;:&nbsp;METE_EN&nbsp;tabla&nbsp;LPAREN&nbsp;columnas&nbsp;RPAREN&nbsp;LOS_VALORES&nbsp;LPAREN&nbsp;valores&nbsp;RPAREN</span></dd></dl>
+ <dl><dt><a name="-p_query_select"><strong>p_query_select</strong></a>(p)</dt><dd><span class="code">query&nbsp;:&nbsp;TRAEME&nbsp;seleccion&nbsp;DE_LA_TABLA&nbsp;tabla&nbsp;opcionales</span></dd></dl>
+ <dl><dt><a name="-p_query_update"><strong>p_query_update</strong></a>(p)</dt><dd><span class="code">query&nbsp;:&nbsp;ACTUALIZA&nbsp;tabla&nbsp;SETEA&nbsp;columna&nbsp;comparador&nbsp;valor&nbsp;opcionales</span></dd></dl>
+ <dl><dt><a name="-p_rename"><strong>p_rename</strong></a>(p)</dt><dd><span class="code">rename&nbsp;:&nbsp;RENOMBRA&nbsp;columna&nbsp;valor<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-p_seleccion"><strong>p_seleccion</strong></a>(p)</dt><dd><span class="code">seleccion&nbsp;:&nbsp;TODO<br>
+|&nbsp;columna<br>
+|&nbsp;LOS_DISTINTOS&nbsp;columna<br>
+|&nbsp;CONTANDO&nbsp;LPAREN&nbsp;ASTERISK&nbsp;RPAREN<br>
+|&nbsp;CONTANDO&nbsp;LPAREN&nbsp;TODO&nbsp;RPAREN</span></dd></dl>
+ <dl><dt><a name="-p_tabla"><strong>p_tabla</strong></a>(p)</dt><dd><span class="code">tabla&nbsp;:&nbsp;ID</span></dd></dl>
+ <dl><dt><a name="-p_tipo_dato"><strong>p_tipo_dato</strong></a>(p)</dt><dd><span class="code">tipo_dato&nbsp;:&nbsp;ID&nbsp;LPAREN&nbsp;NUMBER&nbsp;RPAREN<br>
+|&nbsp;ID</span></dd></dl>
+ <dl><dt><a name="-p_valor"><strong>p_valor</strong></a>(p)</dt><dd><span class="code">valor&nbsp;:&nbsp;NUMBER<br>
+|&nbsp;ID<br>
+|&nbsp;STRING<br>
+|&nbsp;LPAREN&nbsp;valor&nbsp;RPAREN</span></dd></dl>
+ <dl><dt><a name="-p_valores"><strong>p_valores</strong></a>(p)</dt><dd><span class="code">valores&nbsp;:&nbsp;valor<br>
+|&nbsp;valor&nbsp;COMMA&nbsp;valores</span></dd></dl>
+ <dl><dt><a name="-p_where"><strong>p_where</strong></a>(p)</dt><dd><span class="code">where&nbsp;:&nbsp;DONDE&nbsp;condicion<br>
+|&nbsp;empty</span></dd></dl>
+ <dl><dt><a name="-run"><strong>run</strong></a>()</dt></dl>
+ <dl><dt><a name="-t_AGREGA_LA_COLUMNA"><strong>t_AGREGA_LA_COLUMNA</strong></a>(t)</dt><dd><span class="code">AGREGA\s+LA\s+COLUMNA</span></dd></dl>
+ <dl><dt><a name="-t_AGRUPANDO_POR"><strong>t_AGRUPANDO_POR</strong></a>(t)</dt><dd><span class="code">AGRUPANDO\s+POR</span></dd></dl>
+ <dl><dt><a name="-t_BORRA_DE_LA"><strong>t_BORRA_DE_LA</strong></a>(t)</dt><dd><span class="code">BORRA\s+DE\s+LA</span></dd></dl>
+ <dl><dt><a name="-t_CAMBIA_LA_TABLA"><strong>t_CAMBIA_LA_TABLA</strong></a>(t)</dt><dd><span class="code">CAMBIA\s+LA\s+TABLA</span></dd></dl>
+ <dl><dt><a name="-t_CLAVE_PRIMA"><strong>t_CLAVE_PRIMA</strong></a>(t)</dt><dd><span class="code">CLAVE\s+PRIMA</span></dd></dl>
+ <dl><dt><a name="-t_CLAVE_REFERENTE"><strong>t_CLAVE_REFERENTE</strong></a>(t)</dt><dd><span class="code">CLAVE\s+REFERENTE</span></dd></dl>
+ <dl><dt><a name="-t_CREA_LA_TABLA"><strong>t_CREA_LA_TABLA</strong></a>(t)</dt><dd><span class="code">CREA\s+LA\s+TABLA</span></dd></dl>
+ <dl><dt><a name="-t_DE_LA_TABLA"><strong>t_DE_LA_TABLA</strong></a>(t)</dt><dd><span class="code">DE\s+LA\s+TABLA</span></dd></dl>
+ <dl><dt><a name="-t_ELIMINA_LA_COLUMNA"><strong>t_ELIMINA_LA_COLUMNA</strong></a>(t)</dt><dd><span class="code">ELIMINA\s+LA\s+COLUMNA</span></dd></dl>
+ <dl><dt><a name="-t_ID"><strong>t_ID</strong></a>(t)</dt><dd><span class="code">[a-zA-Z_][a-zA-Z0-9_\.\*\;]*</span></dd></dl>
+ <dl><dt><a name="-t_LOS_DISTINTOS"><strong>t_LOS_DISTINTOS</strong></a>(t)</dt><dd><span class="code">LOS\s+DISTINTOS</span></dd></dl>
+ <dl><dt><a name="-t_LOS_VALORES"><strong>t_LOS_VALORES</strong></a>(t)</dt><dd><span class="code">LOS\s+VALORES</span></dd></dl>
+ <dl><dt><a name="-t_METE_EN"><strong>t_METE_EN</strong></a>(t)</dt><dd><span class="code">METE\s+EN</span></dd></dl>
+ <dl><dt><a name="-t_NO_NULO"><strong>t_NO_NULO</strong></a>(t)</dt><dd><span class="code">NO\s+NULO</span></dd></dl>
+ <dl><dt><a name="-t_ORDENA_POR"><strong>t_ORDENA_POR</strong></a>(t)</dt><dd><span class="code">ORDENA\s+POR</span></dd></dl>
+ <dl><dt><a name="-t_RENOMBRA"><strong>t_RENOMBRA</strong></a>(t)</dt><dd><span class="code">RENOMBRA</span></dd></dl>
+ <dl><dt><a name="-t_TIRA_LA_TABLA"><strong>t_TIRA_LA_TABLA</strong></a>(t)</dt><dd><span class="code">TIRA\s+LA\s+TABLA</span></dd></dl>
+ <dl><dt><a name="-t_TRANSFORMA_A"><strong>t_TRANSFORMA_A</strong></a>(t)</dt><dd><span class="code">TRANSFORMA\s+A</span></dd></dl>
+ <dl><dt><a name="-t_WHERE_DEL_GROUP_BY"><strong>t_WHERE_DEL_GROUP_BY</strong></a>(t)</dt><dd><span class="code">WHERE\s+DEL\s+GROUP\s+BY</span></dd></dl>
+ <dl><dt><a name="-t_error"><strong>t_error</strong></a>(t)</dt><dd><span class="code">#Error&nbsp;en&nbsp;tokens</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>lexer</strong> = &lt;ply.lex.Lexer object&gt;<br>
+<strong>parser</strong> = &lt;ply.yacc.LRParser object&gt;<br>
+<strong>reserved</strong> = {'ACTUALIZA': 'ACTUALIZA', 'AGREGA LA COLUMNA': 'AGREGA_LA_COLUMNA', 'AGRUPANDO POR': 'AGRUPANDO_POR', 'BORRA DE LA': 'BORRA_DE_LA', 'CAMBIA LA TABLA': 'CAMBIA_LA_TABLA', 'CLAVE PRIMA': 'CLAVE_PRIMA', 'CLAVE REFERENTE': 'CLAVE_REFERENTE', 'COMO MUCHO': 'COMO_MUCHO', 'CONTANDO': 'CONTANDO', 'CREA LA TABLA': 'CREA_LA_TABLA', ...}<br>
+<strong>t_ASTERISK</strong> = r'\*'<br>
+<strong>t_COMMA</strong> = r'\,'<br>
+<strong>t_COMPARADORES</strong> = '&lt;=|&gt;=|&lt;|&gt;|='<br>
+<strong>t_DONDE</strong> = 'DONDE'<br>
+<strong>t_EN</strong> = 'EN'<br>
+<strong>t_LPAREN</strong> = r'\('<br>
+<strong>t_MEZCLANDO</strong> = 'MEZCLANDO'<br>
+<strong>t_NUMBER</strong> = r'\d+'<br>
+<strong>t_RPAREN</strong> = r'\)'<br>
+<strong>t_STRING</strong> = "'[^']*'"<br>
+<strong>t_TODO</strong> = 'TODO'<br>
+<strong>t_TRAEME</strong> = 'TRAEME'<br>
+<strong>t_Y</strong> = 'Y'<br>
+<strong>t_ignore</strong> = ' <span class="repr">\t</span>'<br>
+<strong>tokens</strong> = ['ID', 'COMPARADORES', 'NUMBER', 'LPAREN', 'RPAREN', 'COMMA', 'STRING', 'ASTERISK', 'TRAEME', 'TODO', 'DE_LA_TABLA', 'DONDE', 'AGRUPANDO_POR', 'MEZCLANDO', 'EN', 'LOS_DISTINTOS', 'CONTANDO', 'METE_EN', 'LOS_VALORES', 'ACTUALIZA', ...]</td></tr></table>
+</body></html>
